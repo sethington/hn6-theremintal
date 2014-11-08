@@ -1,0 +1,11 @@
+body{
+	background-color:#000;
+}
+
+.content{
+	position:absolute;
+	color:#d3d3d3;
+	z-index:1000;
+	top:10px;
+	left:10px;
+}

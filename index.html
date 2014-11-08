@@ -1,0 +1,38 @@
+<html>
+<head>
+	<link href="css/main.css" rel="stylesheet" />
+</head>
+<body>
+	<script src='bower_components/jquery/dist/jquery.min.js' type='text/javascript'></script>
+	<script src='bower_components/three.js/three.min.js' type='text/javascript'></script>
+	<script src='bower_components/underscore/underscore-min.js' type='text/javascript'></script>
+
+	<script src='js/ws.js'></script>
+	<script src='js/main.js'></script>
+	<script src='js/visualizer.js'></script>
+
+	<div class='visualizer'>
+	</div>
+
+	<div class='content'>
+		<div id="pickDevice">
+			<button onclick='setType("host")'>I'm a Host</button>
+			<button onclick='setType("guest")'>I'm a Guest</button>
+		</div>
+
+		<div id="receiving">
+			<h2>Receiving</h2>
+			Gamma<div class="gamma"></div>
+			Alpha<div class="alpha"></div>
+			Beta<div class="beta"></div>
+		</div>
+
+		<div id="sending">
+			<h2>Sending</h2>
+			Gamma<div class="gamma"></div>
+			Alpha<div class="alpha"></div>
+			Beta<div class="beta"></div>
+		</div>
+	</div>
+</body>
+</html>

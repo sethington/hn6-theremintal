@@ -1,0 +1,21 @@
+{
+  "name": "websockets",
+  "version": "0.0.0",
+  "authors": [
+    "Seth Steele <sethsteele@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "three.js": "*",
+    "q": "~2.0.2",
+    "underscore": "~1.7.0"
+  }
+}
