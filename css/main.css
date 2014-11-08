@@ -22,3 +22,12 @@ button{
 	padding-left:15px;
 	vertical-align: top;
 }
+
+.content #receiving{display:none;}
+.content #sending{display:none;}
+
+.content.host #receiving{display:block;}
+.content.host #sending{display:none;}
+
+.content.guest #receiving{display:none;}
+.content.guest #sending{display:block;}

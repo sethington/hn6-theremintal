@@ -2,12 +2,7 @@ var ws = new WS("ws://172.31.253.10:8080/");
 var sendr = {};
 
 $(document).ready(function(){
-	ws.opened.then(function(){
-		ws.send("setClientDeviceType",{
-			deviceType: "host"
-		});
-	});
-
+	// hold the content/sender lookups so we can hit them quicker
 	sendr = {
 		gamma: $("#sending .gamma"),
 		alpha: $("#sending .alpha"),
@@ -17,7 +12,11 @@ $(document).ready(function(){
 
 // set the device type so we know whether we're processing 
 function setType(type){
+	ws.send("setClientDeviceType",{
+			deviceType: type
+	});
 	if (type==='host'){
+		$(".content").addClass("host").removeClass("guest");
 		// fire up visualizer
 		HostVisualizer();
 		
@@ -28,7 +27,7 @@ function setType(type){
 				var obj = $("#receiving .cloneme").clone()
 					.addClass(msg.clientId+ " clonee")
 					.removeClass("cloneme")
-					.prepend("<h4>Client:"+msg.clientId+"</h4>");
+					.prepend("<h4>Client: "+msg.clientId+"</h4>");
 
 				recv[msg.clientId] = {
 					gamma: obj.find(".gamma"),
@@ -46,10 +45,9 @@ function setType(type){
 		};
 	}
 	else{
+		$(".content").addClass("guest").removeClass("host");
 		if (window.DeviceOrientationEvent) {
-
 			var debounce = _.debounce(function(evt){
-				console.log("deb");
 				deviceOrientationHandler(evt);
 			}, 50, true);
 
@@ -58,7 +56,7 @@ function setType(type){
 	}
 }
 
-
+// guest device device orientation listener
 function deviceOrientationHandler(evt){
 	sendr.gamma.html(evt.gamma);
 	sendr.alpha.html(evt.alpha);
