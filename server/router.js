@@ -10,6 +10,7 @@ var Router = function(){
  	self.setOrientation = function(client, data, host){
 		if (_.isObject(host)){
 			host.ws.send(JSON.stringify({
+				clientId: client.id,
 				msgType: "orientation",
 				data: data
 			}));

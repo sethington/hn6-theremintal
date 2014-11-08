@@ -17,23 +17,31 @@ $(document).ready(function(){
 
 // set the device type so we know whether we're processing 
 function setType(type){
-	/*ws.send("setClientDeviceType",{
-		deviceType: type
-	});*/
-
 	if (type==='host'){
+		// fire up visualizer
 		HostVisualizer();
-		// TODO: fire up visualizer and listen for messages
-		var recv = {
-			gamma: $("#receiving .gamma"),
-			alpha: $("#receiving .alpha"),
-			beta: $("#receiving .beta"),
-		};
+		
+		// listen for messages and plug them in
+		var recv = {};
 		ws.onMessage = function(msg){
+			if (!_.isObject(recv[msg.clientId])){
+				var obj = $("#receiving .cloneme").clone()
+					.addClass(msg.clientId+ " clonee")
+					.removeClass("cloneme")
+					.prepend("<h4>Client:"+msg.clientId+"</h4>");
+
+				recv[msg.clientId] = {
+					gamma: obj.find(".gamma"),
+					beta: obj.find(".beta"),
+					alpha: obj.find(".alpha")
+				};
+				$("#receiving").append(obj);
+			}
+
 			if (msg.msgType==='orientation'){
-				recv.gamma.html(msg.data.gamma);
-				recv.alpha.html(msg.data.alpha);
-				recv.beta.html(msg.data.beta);
+				recv[msg.clientId].gamma.html(msg.data.gamma);
+				recv[msg.clientId].alpha.html(msg.data.alpha);
+				recv[msg.clientId].beta.html(msg.data.beta);
 			}
 		};
 	}

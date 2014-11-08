@@ -15,8 +15,6 @@ var WS = function(wsUri){
 		console.log("closed",evt);
 	}; 
 	self.ws.onmessage = function(evt) { 
-		//console.log("msg received", evt.data);
-
 		if (typeof(self.onMessage)==='function'){
 			self.onMessage(JSON.parse(evt.data));
 		}
