@@ -13,7 +13,7 @@ $(document).ready(function(){
 // set the device type so we know whether we're processing 
 function setType(type){
 	ws.send("setClientDeviceType",{
-			deviceType: type
+		deviceType: type
 	});
 	if (type==='host'){
 		$(".content").addClass("host").removeClass("guest");

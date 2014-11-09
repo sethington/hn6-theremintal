@@ -1,5 +1,5 @@
 var WS = function(wsUri){
-	var self = this;
+	var self = {};
 
 	self.ws = new WebSocket(wsUri);
 
