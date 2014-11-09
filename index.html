@@ -1,7 +1,10 @@
 <html>
 <head>
+	
 	<link rel="stylesheet" href="css/normalize.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+	<link href='http://fonts.googleapis.com/css?family=Codystar:300,400' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900' rel='stylesheet' type='text/css'>
 	
 </head>
 <body ontouchstart="">
@@ -17,11 +20,24 @@
 	</div>
 
 	<div class='content'>
-		<div id="pickDevice">
-			<button onclick='setType("host")'>Host</button>
-			<button onclick='setType("guest")'>Guest</button>
-		</div>
+		
+		<div id="intro-screen">
 
+				<div id="intro">
+					<span class="logo step-1">Theremintal</span>
+					<span class="logo step-2">Theremintal</span>
+					<span class="logo step-3">Theremintal</span>
+					<span class="logo step-4">Theremintal</span>
+					<span class="logo step-5">Theremintal</span>
+					<span class="logo step-6">Theremintal</span>
+				</div>
+				
+				<div id="pickDevice">
+					<button class="btn" onclick='setType("host")'>Host</button>
+					<button class="btn" onclick='setType("guest")'>Guest</button>
+				</div>
+		</div>
+		
 		<div id="receiving">
 			<h2>Receiving</h2>
 			<div class="cloneme">
@@ -39,7 +55,7 @@
 			
 			<div class="phone-mockup">
 	
-				<div class="app">
+				<div id="instrument-screen" class="app">
 					
 					<!--header start --->
 					
@@ -79,11 +95,11 @@
 				</div>
 			
 			</div>
-
-			
-			
-			
+	
 		</div>
+		
+		
+		
 	</div>
 </body>
 </html>
