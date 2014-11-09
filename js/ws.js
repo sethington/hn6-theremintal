@@ -28,7 +28,13 @@ var WS = function(wsUri){
 			msgType: type,
 			data: msg
 		};
-		self.ws.send(JSON.stringify(obj));
+
+		if (self.ws.readyState === 1){
+			self.ws.send(JSON.stringify(obj));	
+		}
+		else{
+			console.log("not connected :(", obj);
+		}
 	};
 
 	return self;

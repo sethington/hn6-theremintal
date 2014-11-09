@@ -13,19 +13,20 @@ html {
 body {
 	font-size: 100%;
 	line-height: 1.62em;
-	background-color: #2b2b2b;
-	font-family: helvetica, arial, sans-serif;
-	font-weight: 500;
+	background-color: #ff3939;
+	font-family: 'Source Sans Pro', helvetica, arial, sans-serif;
+	font-weight: 300;
 }
 
 a, a:hover {
-	color: #dec02b;
-	text-decoration: none;
-}
-
-a:hover {
+	color: white;
 	text-decoration: underline;
 }
+
+a:active {
+	text-decoration: underline;
+}
+
 
 ul {
 	list-style: none;
@@ -52,31 +53,30 @@ hr {
 
 .btn {
 	-webkit-appearance: none;
-	background-color: #bababa;
-	border: 0;
+	background-color: transparent;
+	border: 1px solid #fff;
 	width: 100%;
 	color: #fff;
 	padding: .375em .5em;
-	border-radius: .25em;
-	font-weight: 400;
+
+	font-weight: 100;
 	margin-top: .25em;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 1.25rem;
+	text-transform: uppercase;
+	letter-spacing: .25em;
 }
 
 .btn:hover {
-	background-color: #d4d4d4;
+	background-color: white;
+	color: #ff3939;
 }
 
 .btn:active {
-	background-color: #8b8b8b;
+	background-color: white;
+	color: #ff3939;
 }
 
-.btn.positive { background-color: #8cc63f; }
-.btn.positive:hover { background-color: #93dd34;}
-.btn.positive:active { background-color: #84b742; }
-
-.btn.negative { background-color: #c7413f; }
-.btn.negative:hover { background-color: #e44a48;}
-.btn.negative:active { background-color: #b53a38; }
 
 .app {
 	position: absolute;
@@ -84,7 +84,6 @@ hr {
 	width: 100%;
 	height: 100%;
 	font-size: 1em;
-	background-color: #ff3939;
 }
 
 .app h1,
@@ -427,16 +426,92 @@ hr {
 }
 
 
+/* signin specific */
 
 
 
 
+#intro {
+	padding-top: 2rem;
+}
+
+#intro .logo {
+	display: block;
+	font-family: 'Codystar', helvetica, arial, sans-serif;
+	text-transform: uppercase;
+	font-size: 2.5rem;
+	line-height: 2.5rem;
+	font-weight: 400;
+	text-align: center;
+	opacity: 0;
+	letter-spacing: -1px;
+	
+}
+
+#intro .logo.step-1 { color: rgba(255,255,255,0.2);}
+#intro .logo.step-2 { color: rgba(255,255,255,0.3); }
+#intro .logo.step-3 { color: rgba(255,255,255,0.4); }
+#intro .logo.step-4 { color: rgba(255,255,255,0.6);}
+#intro .logo.step-5 { color: rgba(255,255,255,0.8); }
+#intro .logo.step-6 { color: rgba(255,255,255,1); }
+
+#intro .logo.step-1,
+#intro .logo.step-2,
+#intro .logo.step-3,
+#intro .logo.step-4,
+#intro .logo.step-5,
+#intro .logo.step-6 {
+	-webkit-animation: animated-logo 2s ease-out;
+	animation: animated-logo 2s ease-out;
+	-webkit-animation-delay: 1s;
+    animation-delay: 1s;
+    -webkit-animation-fill-mode: forwards; 
+    animation-fill-mode: forwards;
+}
+
+#pickDevice {
+	position: relative;
+	padding: 2rem;
+	opacity: 0;
+	-webkit-animation: animated-login .5s ease-in;
+	animation: animated-login .5s ease-in;
+	-webkit-animation-delay: 3s;
+    animation-delay: 3s;
+    -webkit-animation-fill-mode: forwards; 
+    animation-fill-mode: forwards;
+}
+
+
+@-webkit-keyframes animated-logo {
+	0% {	line-height: 0;
+			opacity: 0.5; }
+	100% { 	line-height: 2.5rem;
+		 	opacity: 1; }
+}
+
+@keyframes animated-logo {
+	0% {	line-height: 0;
+			opacity: 0.5; }
+	100% { 	line-height: 2.5rem;
+		 	opacity: 1; }
+}
+
+@-webkit-keyframes animated-login {
+	0% {	opacity: 0; }
+	100% { 	opacity: 1; }
+}
+
+@keyframes animated-login {
+	0% {	opacity: 0; }
+	100% { 	opacity: 1; }
+}
 
 
 
 
+/* home specific */
 
-/* home.html specific */
+
 
 
 .content{
@@ -449,13 +524,6 @@ hr {
 	left: 0;
 }
 
-#pickDevice {
-	float: left;
-}
-
-button {
-	font-size:20px;
-}
 
 #receiving .cloneme{
 	display:none;
