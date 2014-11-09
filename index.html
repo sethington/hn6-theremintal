@@ -1,8 +1,10 @@
 <html>
 <head>
-	<link href="css/main.css" rel="stylesheet" />
+	<link rel="stylesheet" href="css/normalize.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+	
 </head>
-<body>
+<body ontouchstart="">
 	<script src='bower_components/jquery/dist/jquery.min.js' type='text/javascript'></script>
 	<script src='bower_components/three.js/three.min.js' type='text/javascript'></script>
 	<script src='bower_components/underscore/underscore-min.js' type='text/javascript'></script>
@@ -30,10 +32,57 @@
 		</div>
 
 		<div id="sending">
-			<h2>Sending</h2>
+			<!--<h2>Sending</h2>
 			Gamma<div class="gamma"></div>
 			Alpha<div class="alpha"></div>
-			Beta<div class="beta"></div>
+			Beta<div class="beta"></div>-->
+			
+			<div class="phone-mockup">
+	
+				<div class="app">
+					
+					<!--header start --->
+					
+					<!--header end --->
+					
+					<!--nav start --->
+					
+					<div class="nav">
+						<ul>
+						   <li><a id="sine" class="selected" href=""><span></span></a></li><!--
+						--><li><a id="square" class="" href=""><span></span></a></li><!--
+						--><li><a id="triangle" class="" href=""><span></span></a></li>
+					</div>
+					
+					<!--nav end --->
+					
+					<!--page start --->
+					
+					<div id="toucharea" class="touch-sine">
+						<span></span>
+					</div>
+							
+					<!--page end --->
+					
+					<!-- footer start --->
+					
+					<div class="foot">
+						<ul>
+						   <li><a id="preset-1" class="selected" href=""><span>☂</span></a></li><!--
+						--><li><a id="preset-2" class="" href=""><span>☢</span></a></li><!--
+						--><li><a id="preset-3" class="" href=""><span>❤</span></a></li><!--
+						--><li><a id="preset-4" class="" href=""><span>❄</span></a></li>
+					</div>
+					
+					<!-- footer end --->
+					
+				</div>
+			
+			</div>
+
+			
+			
+			
 		</div>
 	</div>
 </body>
