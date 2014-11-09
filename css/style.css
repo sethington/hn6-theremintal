@@ -65,6 +65,7 @@ hr {
 	font-size: 1.25rem;
 	text-transform: uppercase;
 	letter-spacing: .25em;
+	
 }
 
 .btn:hover {
@@ -109,30 +110,28 @@ hr {
 #toucharea {
 	position: absolute;
 	background-color: rgba(0,0,0,0.2);
-	top: 4.5em;
+	top: 9.375em;
 	bottom: 4.5em;
 	right: 0;
 	left: 0;
 }
 
-/*#toucharea:active {
-	-webkit-animation: animated-toucharea 1s ease-in-out infinite;
-	animation: animated-toucharea 1s ease-in-out infinite;
-}*/
 
-#toucharea span {
+#toucharea .touchy {
 	position: absolute;
 	top: 0; bottom: 0; left: 0; right: 0;
 	z-index: 1;
 	opacity: 0;
-	transition: all 300ms ease;
+	background-color: rgba(0,0,0,0.2);
+	transition: all 100ms ease;
+	cursor: pointer;
 }
 
-#toucharea span:active {
+#toucharea .touchy:active {
 	opacity: 1;
 }
 
-#toucharea.touch-sine span {
+#toucharea.touch-sine .touchy {
 	background-image: url('../img/sine2.svg');
 	background-position: 0px 50%;
 	background-repeat: repeat-x;
@@ -216,13 +215,11 @@ hr {
 	background-repeat: repeat-x;
 }
 
-
 #sine:hover span,
 #sine.selected span {
 	-webkit-animation: animated-sine 3s ease-in-out infinite;
 	animation: animated-sine 3s ease-in-out infinite;
 }
-
 
 #square	span {
 	display: block;
@@ -242,7 +239,6 @@ hr {
 	padding: 0.425em;
 }
 
-
 #triangle span {
 	display: block;
 	width: 3.5em;
@@ -254,9 +250,6 @@ hr {
 	background-repeat: no-repeat;
 }
 
-/*#triangle span:after {
-	content: url('../img/triangle.svg');
-}*/
 
 #triangle:hover span,
 #triangle.selected span {
@@ -406,7 +399,8 @@ hr {
 	border-radius: .25em;
 	padding: 0.625em;
 	margin-top: 0;
-	vertical-align: center;
+	vertical-align: middle;
+	text-decoration: none;
 }
 
 .foot li a span {
@@ -429,8 +423,6 @@ hr {
 /* signin specific */
 
 
-
-
 #intro {
 	padding-top: 2rem;
 }
@@ -439,8 +431,8 @@ hr {
 	display: block;
 	font-family: 'Codystar', helvetica, arial, sans-serif;
 	text-transform: uppercase;
-	font-size: 2.5rem;
-	line-height: 2.5rem;
+	font-size: 40px;
+	line-height: 0;
 	font-weight: 400;
 	text-align: center;
 	opacity: 0;
@@ -467,11 +459,14 @@ hr {
     animation-delay: 1s;
     -webkit-animation-fill-mode: forwards; 
     animation-fill-mode: forwards;
+    -webkit-transition: line-height 2s ease-out;
+    transition: line-height 2s ease-out;  
 }
 
 #pickDevice {
+	text-align: center;
 	position: relative;
-	padding: 2rem;
+	padding: 3rem;
 	opacity: 0;
 	-webkit-animation: animated-login .5s ease-in;
 	animation: animated-login .5s ease-in;
@@ -481,20 +476,44 @@ hr {
     animation-fill-mode: forwards;
 }
 
+#pickDevice button {
+	margin: 0 auto;
+	max-width: 500px;
+	display: block;
+}
+
+#pickDevice .host-login {
+	margin-top: 4rem;
+	border-color: transparent;
+	text-transform: none;
+	letter-spacing: 0;
+	font-size: 1em;
+	
+}
+
+
+/* Animated logo */
 
 @-webkit-keyframes animated-logo {
-	0% {	line-height: 0;
-			opacity: 0.5; }
-	100% { 	line-height: 2.5rem;
+	0%   {	margin-top: 0;
+			opacity: 0; }
+	50%  {	margin-top: 0;
+			opacity: 0.5; }		
+	100% { 	margin-top: 1em;
 		 	opacity: 1; }
 }
 
 @keyframes animated-logo {
-	0% {	line-height: 0;
-			opacity: 0.5; }
-	100% { 	line-height: 2.5rem;
+	0%   {	margin-top: 0;
+			opacity: 0; }
+	50%  {	margin-top: 0;
+			opacity: 0.5; }		
+	100% { 	margin-top: 1em;
 		 	opacity: 1; }
 }
+
+
+/* Animated login */
 
 @-webkit-keyframes animated-login {
 	0% {	opacity: 0; }
@@ -504,6 +523,129 @@ hr {
 @keyframes animated-login {
 	0% {	opacity: 0; }
 	100% { 	opacity: 1; }
+}
+
+
+
+
+/* notation meter */
+
+#notation {
+	text-align: center;
+	background-color: rgba(0,0,0,0.2);
+	position: absolute;
+	left: .75em;
+	right: .75em;
+	top: 4.125em;
+	border-radius: .25em;
+	pointer-events: none;
+}
+
+#notation ul {
+	margin: .25em;
+}
+
+#notation li {
+	display: inline-block;
+	height: 1.5em;
+	transition: all .5s ease-in-out;
+}
+
+#notation .scale {
+	width: 7.5%;
+	padding: .5em 0;
+}
+
+#notation .scale:after {
+	content: "";
+	display: inline-block;
+	width: .75em;
+	height: .75em;
+	border-radius: 50%;
+	border: 1px solid #fff;
+	vertical-align: middle;
+}
+
+#notation .scale.selected:after {
+	background-color: white;
+}
+
+
+#notation .note {
+	border: 1px solid #fff;
+	font-size: 1em;
+	line-height: 1em;
+	padding: .125em;
+	font-weight: 400;
+	vertical-align: middle;
+	color: white;
+	width: 20%;
+	border-radius: .125em;
+	margin: 0 2%;
+}
+
+#notation .note.selected {
+	background-color: white;
+	color: #ff3939;
+}
+
+#notation .flat,
+#notation .sharp {
+	font-size: .625em;
+	vertical-align:baseline;
+	display: none;
+}
+
+#notation .flat:after {
+	content: "♭";
+}
+
+#notation .sharp:after {
+	content: "♯";
+}
+
+
+/* volume display */
+
+
+#volume {
+	text-align: center;
+	background-color: rgba(0,0,0,0.2);
+	position: absolute;
+	left: .75em;
+	right: .75em;
+	top: 6.625em;
+	border-radius: .25em;
+	pointer-events: none;
+}
+
+#volume span {
+	display: block;
+	height: 1em;
+	margin: .5em;
+	background-color: white;
+	width: 0%;
+	border-radius: .125em;
+	-webkit-animation: animated-volume 2s ease-in-out infinite;
+	animation: animated-volume 2s ease-in-out infinite;
+}
+
+@-webkit-keyframes animated-volume {
+	0%   {	width: 10%; }
+	10%  {	width: 50%; }
+	20%  {	width: 20%; }
+	40%  {	width: 70%; }
+	70%  {	width: 90%; }
+	100% { 	width: 10%; }
+}
+
+@keyframes animated-volume {
+	0%   {	width: 10%; }
+	10%  {	width: 50%; }
+	20%  {	width: 20%; }
+	40%  {	width: 70%; }
+	70%  {	width: 90%; }
+	100% { 	width: 10%; }
 }
 
 
