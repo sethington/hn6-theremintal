@@ -15,6 +15,7 @@ function setType(type){
 	ws.send("setClientDeviceType",{
 		deviceType: type
 	});
+	$("#intro-screen").hide();
 	if (type==='host'){
 		$(".content").addClass("host").removeClass("guest");
 		// fire up visualizer
